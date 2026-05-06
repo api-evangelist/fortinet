@@ -1,5 +1,6 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
@@ -8,121 +9,84 @@ alignedWith:
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
 provider: Fortinet
 providerId: fortinet
-publisherName: Fortinet
-serviceCategory: API
+publisherName: Fortinet, Inc.
+serviceCategory: Cybersecurity / Networking
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
   - Cybersecurity
   - Networking
+  - Firewall
+  - SASE
   - FinOps
-  - Cost Management
   - FOCUS
-description: FinOps framework definition for the Fortinet API surface. Provides a FOCUS-aligned mapping
-  for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
-principles:
-  - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
-  - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
-  - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
-  - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
-domains:
-  - name: Understand Usage and Cost
-    capabilities:
-      - Data Ingestion
-      - Allocation
-      - Reporting and Analytics
-      - Anomaly Management
-  - name: Quantify Business Value
-    capabilities:
-      - Planning and Estimating
-      - Forecasting
-      - Budgeting
-      - Benchmarking
-      - Unit Economics
-  - name: Optimize Usage and Cost
-    capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
-      - Licensing and SaaS
-  - name: Manage the FinOps Practice
-    capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
-      - Invoicing and Chargeback
-      - Onboarding Workloads
-      - Intersecting Disciplines
+description: FOCUS-aligned FinOps mapping for Fortinet — appliance + FortiCare entitlement model with FortiCloud SaaS subscriptions layered on top. APIs are bundled with the underlying product license rather than sold as separate API plans.
+notes: No public list pricing. Meters reflect typical Fortinet invoice patterns (per-appliance license, per-user / per-bandwidth FortiCloud, FortiCare renewal).
+sources:
+  - https://www.fortinet.com/products
+  - https://www.fortinet.com/products/management/forticloud
 billingModel:
-  pricingCategory: Usage-Based
-  billingFrequency: Monthly
+  pricingCategory: Perpetual + Subscription
+  billingFrequency: Annual
   billingCurrency: USD
   chargeCategories:
-    - Usage
     - Purchase
+    - Usage
     - Tax
-    - Credit
     - Adjustment
-  chargeFrequency: Recurring
+    - Credit
 focusColumns:
   ServiceName: Fortinet
-  ServiceCategory: Developer Tools / API
-  ProviderName: Fortinet
-  PublisherName: Fortinet
-  InvoiceIssuerName: Fortinet
-  PricingCategory: Usage-Based
-  PricingUnit: request
+  ServiceCategory: Cybersecurity / Networking
+  ProviderName: Fortinet, Inc.
+  PublisherName: Fortinet, Inc.
+  InvoiceIssuerName: Fortinet, Inc. (or reseller of record)
   BillingCurrency: USD
-  ChargeCategory: Usage
+  ChargeCategory: Purchase
 meters:
-  - name: api_requests
-    description: Count of billable API requests
-    unit: request
-    aggregation: sum
+  - name: appliances
+    description: Hardware/VM appliances under active license (FortiGate, FortiSwitch, FortiAP, etc.)
+    unit: appliance-year
+    aggregation: max
     dimensions:
-      - api
-      - endpoint
+      - product
+      - model
+      - site
+  - name: forticare_renewal
+    description: FortiCare support and entitlement renewal per appliance
+    unit: appliance-year
+    aggregation: max
+    dimensions:
       - tier
+      - appliance
+  - name: forticloud_users
+    description: User-based FortiCloud subscriptions (FortiSASE, FortiAuthenticator Cloud, etc.)
+    unit: seat-year
+    aggregation: max
+    dimensions:
+      - service
       - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
+  - name: forticloud_bandwidth
+    description: Bandwidth-based FortiCloud subscriptions (FortiSASE secure web gateway, etc.)
+    unit: Gbps-month
+    aggregation: max
+    dimensions:
+      - service
+  - name: forticloud_log_volume
+    description: Log/event volume ingested into FortiAnalyzer Cloud
     unit: GB
     aggregation: sum
     dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
-    aggregation: sum
-    dimensions:
-      - api
-      - endpoint
-      - tier
-apis:
-  - name: Fortinet API
-    baseURL: https://api.fortinet.com
-    tags:
-      - Cybersecurity
-      - Networking
-    serviceName: Fortinet API
-    serviceCategory: API
-unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
-    target: TBD
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+      - service
+      - device
+principles:
+  - name: Visibility
+    description: Pull FortiCloud admin reports and FortiManager inventory; reconcile active-appliance counts against the FortiCare renewal invoice to surface decommissioned hardware still on the bill.
+  - name: Allocation
+    description: Tag appliances and FortiCloud tenants by site/business-unit for chargeback; FortiAnalyzer's logs can be partitioned by ADOM for finer attribution.
+  - name: Optimization
+    description: Right-size FortiCare tiers (8x5 vs 24x7 vs 360); decommission unused appliances; consolidate FortiCloud subscriptions onto an enterprise agreement; archive old FortiAnalyzer logs to cheaper tiers.
+  - name: Accountability
+    description: Network/security operations owns the appliance fleet; finance audits FortiCare renewal lists annually against the asset inventory.
+maintainers: []
