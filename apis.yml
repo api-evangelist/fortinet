@@ -2,7 +2,7 @@ aid: fortinet
 url: https://raw.githubusercontent.com/api-evangelist/fortinet/refs/heads/main/apis.yml
 name: Fortinet
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Cybersecurity
   - Networking
@@ -17,7 +17,7 @@ apis:
     tags:
       - Cybersecurity
       - Networking
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.fortinet.com
     humanURL: https://developer.fortinet.com
     properties:
