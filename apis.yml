@@ -26,12 +26,20 @@ apis:
     description: >-
       The Fortinet API provides access to platform services and data for enterprise integration and automation.
 common:
+  - type: TrustCenter
+    url: security/fortinet-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/fortinet-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/fortinet-domain-security.yml
   - type: GitHubOrganization
     url: https://github.com/fortinet
   - type: LinkedIn
     url: https://www.linkedin.com/company/fortinet
   - type: Website
     url: https://www.fortinet.com
+  - url: https://feeds.fortinet.com/fortinet/blogs
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
