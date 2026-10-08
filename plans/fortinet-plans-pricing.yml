@@ -94,3 +94,37 @@ plans:
       - name: Dedicated TAM
       - name: Custom SLA
 maintainers: []
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - subscription
+  units:
+  - negotiated
+  - object
+  - period
+  plans:
+  - name: Bundled with Product / FortiCare
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - object
+    periods:
+    - year
+  - name: FortiCloud SaaS Subscriptions
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - negotiated
+    periods:
+    - year
+  - name: Enterprise / Service Provider
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - period
+    periods:
+    - year
