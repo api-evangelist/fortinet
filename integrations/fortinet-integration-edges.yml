@@ -11,8 +11,8 @@ edges:
   type: marketplace
   marketplace: aws-marketplace
   channel: distribution
-  relationship: platform-app
-  direction: provider-built
+  relationship: distribution-channel
+  direction: third-party
   evidence: https://aws.amazon.com/marketplace/seller-profile?id=243a3a4c-e35a-49b0-9061-3f354bb2254e
   listing_count: 15
   apps:
@@ -30,8 +30,8 @@ edges:
   type: marketplace
   marketplace: azure-marketplace
   channel: distribution
-  relationship: platform-app
-  direction: provider-built
+  relationship: distribution-channel
+  direction: third-party
   evidence: https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Fortinet
   listing_count: 32
   apps:
@@ -49,8 +49,8 @@ edges:
   type: marketplace
   marketplace: azure-marketplace
   channel: distribution
-  relationship: platform-app
-  direction: provider-built
+  relationship: distribution-channel
+  direction: third-party
   evidence: https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Fortinet%20Federal
   listing_count: 3
   apps:
