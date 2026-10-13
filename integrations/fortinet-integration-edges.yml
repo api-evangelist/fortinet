@@ -1,0 +1,62 @@
+generated: '2026-10-13'
+method: searched
+checked:
+- https://aws.amazon.com/marketplace/
+- https://azuremarketplace.microsoft.com/
+marketplace_apps: []
+edges:
+- partner_name: AWS Marketplace
+  partner: amazon-web-services
+  partner_match: aggregator
+  type: marketplace
+  marketplace: aws-marketplace
+  channel: distribution
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://aws.amazon.com/marketplace/seller-profile?id=243a3a4c-e35a-49b0-9061-3f354bb2254e
+  listing_count: 15
+  apps:
+  - Fortinet Managed Intrusion Prevention Rules for AWS Network Firewall
+  - Fortinet Managed Rules for AWS WAF - Complete OWASP Top 10
+  - Fortinet FortiSASE
+  - Fortinet FortiCNAPP
+  - Fortinet Managed Rules for AWS WAF - API Security
+  seller_name: Fortinet Inc.
+  detected_by: sweep-cloud-marketplaces.py
+  detected: '2026-10-13'
+- partner_name: Microsoft Azure Marketplace
+  partner: microsoft-azure
+  partner_match: aggregator
+  type: marketplace
+  marketplace: azure-marketplace
+  channel: distribution
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Fortinet
+  listing_count: 32
+  apps:
+  - Fortinet FortiProxy Secure Web Gateway (SWG)
+  - Fortinet FortiPAM Privileged Access Management
+  - Fortinet FortiFlex Usage-based Licensing
+  - Fortinet FortiNDR Cloud for Microsoft Sentinel
+  - Fortinet Network and Application Security Consulting Service
+  seller_name: Fortinet
+  detected_by: sweep-cloud-marketplaces.py
+  detected: '2026-10-13'
+- partner_name: Microsoft Azure Marketplace
+  partner: microsoft-azure
+  partner_match: aggregator
+  type: marketplace
+  marketplace: azure-marketplace
+  channel: distribution
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Fortinet%20Federal
+  listing_count: 3
+  apps:
+  - Fortinet Federal FortiGate NGFW (VM only)
+  - Fortinet Federal FortiAnalyzer VM
+  - Fortinet Federal FortiManager VM
+  seller_name: Fortinet Federal
+  detected_by: sweep-cloud-marketplaces.py
+  detected: '2026-10-13'
