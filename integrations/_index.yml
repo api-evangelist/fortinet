@@ -27,3 +27,28 @@
   relationship: distribution-channel
   status: not-a-workflow
   arazzo: null
+- slug: fortinet-crowdstrike-own
+  label: CrowdStrike (own)
+  partner: crowdstrike
+  partner_name: CrowdStrike (own)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.crowdstrike.com/listings/fortindr-cloud/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: fortinet-microsoft-sentinel-own
+  label: Microsoft Sentinel (own)
+  partner: microsoft-sentinel
+  partner_name: Microsoft Sentinel (own)
+  category: Security - Automation (SOAR)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Fortinet%20FortiNDR%20Cloud
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
