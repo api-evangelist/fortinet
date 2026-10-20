@@ -17,6 +17,149 @@ checked:
 - microsoft-teams/integrations/microsoft-teams-integration-edges.yml
 marketplace_apps: []
 edges:
+- partner_name: CrowdStrike (own)
+  partner: crowdstrike
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.crowdstrike.com/listings/fortindr-cloud/
+  mirror_of: crowdstrike/integrations/crowdstrike-integration-edges.yml
+  apps:
+  - FortiNDR Cloud
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+- partner_name: Microsoft Sentinel (own)
+  partner: microsoft-sentinel
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Fortinet%20FortiNDR%20Cloud
+  mirror_of: microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
+  apps:
+  - Fortinet FortiNDR Cloud
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Security - Automation (SOAR)
+  badges:
+  - support-tier:partner
+- partner_name: Microsoft Teams (own)
+  partner: microsoft-teams
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://appsource.microsoft.com/en-us/product/office/WA200008651
+  mirror_of: microsoft-teams/integrations/microsoft-teams-integration-edges.yml
+  apps:
+  - FortiFone
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Microsoft Teams app
+  publisher_verified:
+  - Microsoft 365 Certified
+- partner_name: GovRAMP
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://govramp.org/program-participants
+  category: GovRAMP authorization
+  contract_reference:
+    register: GovRAMP Program Participants (govramp.org/program-participants)
+    standard: GovRAMP
+    spec_file: null
+    role: govramp-authorized
+    registered_name: Fortinet
+    register_id: SR24040
+    matched_domain: fortinet.com
+    matched_by: domain
+    domain_source: contact-email
+    statuses:
+    - Authorized
+    offerings:
+    - FortiCare
+    - FortiGuard
+    signal_note: certified_products = one entry per AUTHORIZED impact level (Authorized / Provisionally Authorized),
+      never per offering; Progressing / Pending / Ready / Core are participation only
+    detected_by: sweep-gov-cloud.py
+    detected: '2026-10-15'
+    certified_products:
+    - product: GovRAMP Moderate
+      impact_level: Moderate
+      lapsed: false
+      latest_authorization: '2025-04-10'
+  detected_by: sweep-gov-cloud.py
+  first_seen: '2026-10-15'
+- partner_name: ODVA (CIP / EtherNet/IP)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://marketplace.odva.org/organizations/3343-fortinet-inc
+  category: CIP network products
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: ODVA Marketplace (marketplace.odva.org/organizations)
+    spec_file: null
+    standard: CIP (EtherNet/IP, DeviceNet, ControlNet, CompoNet)
+    role: ODVA conformance-declared vendor
+    registered_name: Fortinet, Inc.
+    website: https://www.fortinet.com/
+    matched_domain: fortinet.com
+    matched_by: domain
+    licensed_technologies:
+    - EtherNet/IP
+    certified_products:
+    - product: EtherNet/IP
+      listed_products: 1
+      lapsed: false
+    signal_note: certified_products = one entry per TECHNOLOGY with a listed (Declaration of Conformity) product;
+      listed_products is context, never read
+    detected_by: sweep-industrial-robotics.py
+    detected: '2026-10-19'
+  detected_by: sweep-industrial-robotics.py
+  first_seen: '2026-10-15'
+- partner_name: ODVA (CIP / EtherNet/IP)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://marketplace.odva.org/organizations/3343-fortinet-inc
+  category: CIP network products
+  channel: standard-directory
+  relationship: compatible
+  shape: ethernet-ip
+  evidence_kind: conformance-register
+  degree: declared-conformance
+  report_only: true
+  contract_reference:
+    register: ODVA Marketplace (marketplace.odva.org/organizations)
+    spec_file: null
+    standard: EtherNet/IP
+    role: ethernet-ip-conformance-declared
+    registered_name: Fortinet, Inc.
+    matched_domain: fortinet.com
+    detected_by: sweep-industrial-robotics.py
+    detected: '2026-10-19'
+  detected_by: sweep-industrial-robotics.py
+  first_seen: '2026-10-19'
 - partner_name: AWS Marketplace
   partner: amazon-web-services
   partner_match: aggregator
@@ -64,130 +207,15 @@ edges:
   relationship: distribution-channel
   direction: third-party
   evidence: https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Fortinet%20Federal
-  listing_count: 3
+  listing_count: 4
   apps:
   - Fortinet Federal FortiGate NGFW (VM only)
   - Fortinet Federal FortiAnalyzer VM
   - Fortinet Federal FortiManager VM
+  - Fortinet Federal FortiGate Next-Generation Firewall
   seller_name: Fortinet Federal
   detected_by: sweep-cloud-marketplaces.py
-  detected: '2026-10-13'
-- partner_name: ODVA (CIP / EtherNet/IP)
-  partner: null
-  partner_match: register
-  type: register
-  direction: partner-built
-  evidence: https://marketplace.odva.org/organizations/3343-fortinet-inc
-  category: CIP network products
-  channel: standard-directory
-  relationship: standard-participant
-  contract_reference:
-    register: ODVA Marketplace (marketplace.odva.org/organizations)
-    spec_file: null
-    standard: CIP (EtherNet/IP, DeviceNet, ControlNet, CompoNet)
-    role: ODVA licensed vendor (no listed product)
-    registered_name: Fortinet, Inc.
-    website: https://www.fortinet.com/
-    matched_domain: fortinet.com
-    matched_by: domain
-    licensed_technologies:
-    - EtherNet/IP
-    certified_products: []
-    signal_note: certified_products = one entry per TECHNOLOGY with a listed (Declaration of Conformity) product;
-      listed_products is context, never read
-    detected_by: sweep-industrial-robotics.py
-    detected: '2026-10-15'
-  detected_by: sweep-industrial-robotics.py
-  first_seen: '2026-10-15'
-- partner_name: CrowdStrike (own)
-  partner: crowdstrike
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://marketplace.crowdstrike.com/listings/fortindr-cloud/
-  mirror_of: crowdstrike/integrations/crowdstrike-integration-edges.yml
-  apps:
-  - FortiNDR Cloud
-  listing_count: 1
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-- partner_name: Microsoft Sentinel (own)
-  partner: microsoft-sentinel
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Fortinet%20FortiNDR%20Cloud
-  mirror_of: microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
-  apps:
-  - Fortinet FortiNDR Cloud
-  listing_count: 1
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: Security - Automation (SOAR)
-  badges:
-  - support-tier:partner
-- partner_name: GovRAMP
-  partner: null
-  partner_match: register
-  type: register
-  channel: standard-directory
-  relationship: standard-participant
-  direction: partner-built
-  evidence: https://govramp.org/program-participants
-  category: GovRAMP authorization
-  contract_reference:
-    register: GovRAMP Program Participants (govramp.org/program-participants)
-    standard: GovRAMP
-    spec_file: null
-    role: govramp-authorized
-    registered_name: Fortinet
-    register_id: SR24040
-    matched_domain: fortinet.com
-    matched_by: domain
-    domain_source: contact-email
-    statuses:
-    - Authorized
-    offerings:
-    - FortiCare
-    - FortiGuard
-    signal_note: certified_products = one entry per AUTHORIZED impact level (Authorized / Provisionally Authorized),
-      never per offering; Progressing / Pending / Ready / Core are participation only
-    detected_by: sweep-gov-cloud.py
-    detected: '2026-10-15'
-    certified_products:
-    - product: GovRAMP Moderate
-      impact_level: Moderate
-      lapsed: false
-      latest_authorization: '2025-04-10'
-  detected_by: sweep-gov-cloud.py
-  first_seen: '2026-10-15'
-- partner_name: Microsoft Teams (own)
-  partner: microsoft-teams
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://appsource.microsoft.com/en-us/product/office/WA200008651
-  mirror_of: microsoft-teams/integrations/microsoft-teams-integration-edges.yml
-  apps:
-  - FortiFone
-  listing_count: 1
-  detected: '2026-10-18'
-  detected_by: mirror-platform-listings.py
-  category: Microsoft Teams app
-  publisher_verified:
-  - Microsoft 365 Certified
+  detected: '2026-10-19'
 source:
 - crowdstrike/integrations/crowdstrike-integration-edges.yml
 - microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
