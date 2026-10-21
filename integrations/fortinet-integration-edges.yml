@@ -24,62 +24,9 @@ checked:
 - https://cloudsecurityalliance.org/membership/current
 - https://fidoalliance.org/certification/fido-certified-products/
 - https://www.cisa.gov/securebydesign/pledge/secure-design-pledge-signers
+- docker-hub/integrations/docker-hub-integration-edges.yml
 marketplace_apps: []
 edges:
-- partner_name: CrowdStrike (own)
-  partner: crowdstrike
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://marketplace.crowdstrike.com/listings/fortindr-cloud/
-  mirror_of: crowdstrike/integrations/crowdstrike-integration-edges.yml
-  apps:
-  - FortiNDR Cloud
-  listing_count: 1
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-- partner_name: Microsoft Sentinel (own)
-  partner: microsoft-sentinel
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Fortinet%20FortiNDR%20Cloud
-  mirror_of: microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
-  apps:
-  - Fortinet FortiNDR Cloud
-  listing_count: 1
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: Security - Automation (SOAR)
-  badges:
-  - support-tier:partner
-- partner_name: Microsoft Teams (own)
-  partner: microsoft-teams
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://appsource.microsoft.com/en-us/product/office/WA200008651
-  mirror_of: microsoft-teams/integrations/microsoft-teams-integration-edges.yml
-  apps:
-  - FortiFone
-  listing_count: 1
-  detected: '2026-10-18'
-  detected_by: mirror-platform-listings.py
-  category: Microsoft Teams app
-  publisher_verified:
-  - Microsoft 365 Certified
 - partner_name: GovRAMP
   partner: null
   partner_match: register
@@ -314,6 +261,80 @@ edges:
     identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
   detected_by: sweep-cloud-security-star.py
   first_seen: '2026-10-20'
+- partner_name: CrowdStrike (own)
+  partner: crowdstrike
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.crowdstrike.com/listings/fortindr-cloud/
+  mirror_of: crowdstrike/integrations/crowdstrike-integration-edges.yml
+  apps:
+  - FortiNDR Cloud
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+- partner_name: Microsoft Sentinel (own)
+  partner: microsoft-sentinel
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Fortinet%20FortiNDR%20Cloud
+  mirror_of: microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
+  apps:
+  - Fortinet FortiNDR Cloud
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Security - Automation (SOAR)
+  badges:
+  - support-tier:partner
+- partner_name: Microsoft Teams (own)
+  partner: microsoft-teams
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://appsource.microsoft.com/en-us/product/office/WA200008651
+  mirror_of: microsoft-teams/integrations/microsoft-teams-integration-edges.yml
+  apps:
+  - FortiFone
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Microsoft Teams app
+  publisher_verified:
+  - Microsoft 365 Certified
+- partner_name: Docker Hub (docker-verified-publisher)
+  partner: docker-hub
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: docker-verified-publisher
+  evidence: https://hub.docker.com/u/fortinet
+  mirror_of: docker-hub/integrations/docker-hub-integration-edges.yml
+  apps:
+  - fortinet/fortiadc-ingress
+  - fortinet/fortiweb-ingress
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: Docker Verified Publisher
+  badges:
+  - Docker Verified Publisher
 source:
 - crowdstrike/integrations/crowdstrike-integration-edges.yml
 - microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
