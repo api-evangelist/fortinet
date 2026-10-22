@@ -25,6 +25,12 @@ checked:
 - https://fidoalliance.org/certification/fido-certified-products/
 - https://www.cisa.gov/securebydesign/pledge/secure-design-pledge-signers
 - docker-hub/integrations/docker-hub-integration-edges.yml
+- https://www.commoncriteriaportal.org/products/certified_products-archived.csv
+- https://www.commoncriteriaportal.org/products/certified_products.csv
+- https://www.niap-ccevs.org/Product/PCL.cfm
+- https://addons.mozilla.org/api/v5/addons/addon/<slug>/
+- https://addons.mozilla.org/api/v5/addons/search/?type=extension&app=firefox
+- https://chromewebstore.google.com/sitemap
 marketplace_apps: []
 edges:
 - partner_name: GovRAMP
@@ -335,6 +341,201 @@ edges:
   category: Docker Verified Publisher
   badges:
   - Docker Verified Publisher
+- partner_name: Common Criteria Portal (CCRA certified products)
+  partner: null
+  partner_match: register-name
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.commoncriteriaportal.org/products/
+  category: Common Criteria (ISO/IEC 15408) product certification
+  contract_reference:
+    register: Common Criteria Portal certified products + archived certificates (commoncriteriaportal.org/products/certified_products.csv,
+      certified_products-archived.csv)
+    standard: ISO/IEC 15408 Common Criteria for Information Technology Security Evaluation (CCRA)
+    spec_file: null
+    role: cc-certified-manufacturer
+    registered_name: Fortinet, Inc.
+    matched_domain: null
+    matched_by: register-name
+    certified_products:
+    - product: Boundary Protection Devices and Systems
+      product_type: Boundary Protection Devices and Systems
+      standard: ISO/IEC 15408 Common Criteria for Information Technology Security Evaluation (CCRA)
+      lapsed: false
+      partner_tier: EAL4+,ALC_FLR.3
+      schemes:
+      - NL
+    - product: Network and Network-Related Devices and Systems
+      product_type: Network and Network-Related Devices and Systems
+      standard: ISO/IEC 15408 Common Criteria for Information Technology Security Evaluation (CCRA)
+      lapsed: false
+      partner_tier: EAL4+,ALC_FLR.3
+      protection_profiles:
+      - CPP_ND_V2.2E
+      - CPP_ND_V3.0E
+      - MOD_CPP_FW_V1.4E
+      - MOD_VPNGW_V1.3
+      - PKG_SSH_V1.0
+      schemes:
+      - CA
+      - US
+    signal_note: 'certified_products = one entry per Common Criteria product CATEGORY held (highest EAL for that
+      category in partner_tier; a category held only among archived certificates is lapsed: true); certificate and
+      product counts are context, never counted'
+    detected_by: sweep-common-criteria-certified-products.py
+    detected: '2026-10-21'
+    register_name_note: register-name 'fortinet' = fortinet; wikidata P856 fortinet.com agrees or unheld
+    identity_source: register-name
+    identity_note: register gave only the name; exact normalised match to the repo's apis.yml name, one repo, Wikidata
+      P856 not contradicting (Kin 2026-10-20 decision 2)
+  detected_by: sweep-common-criteria-certified-products.py
+  first_seen: '2026-10-21'
+- partner_name: NIAP Product Compliant List (US CCEVS)
+  partner: null
+  partner_match: register-name
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.niap-ccevs.org/Product/PCL.cfm
+  category: NIAP Protection Profile conformance (US Common Criteria scheme)
+  contract_reference:
+    register: NIAP Product Compliant List (niap-ccevs.org/Product/PCL.cfm; public JSON /api/project/product/pcl_products_all/)
+    standard: NIAP-approved Protection Profiles under ISO/IEC 15408 Common Criteria for Information Technology Security
+      Evaluation (CCRA)
+    spec_file: null
+    role: niap-pcl-vendor
+    registered_name: Fortinet, Inc.
+    matched_domain: null
+    matched_by: register-name
+    signal_note: 'certified_products = one entry per NIAP technology type with a Certified (current) or Archived
+      (lapsed: true) PCL product, Protection Profiles named; products In Progress are listing only (in_evaluation),
+      never certified; product counts are context, never counted'
+    detected_by: sweep-common-criteria-certified-products.py
+    detected: '2026-10-21'
+    certified_products:
+    - product: Boundary Protection Devices and Systems
+      product_type: Boundary Protection Devices and Systems
+      lapsed: true
+      standard: NIAP-approved Protection Profiles under ISO/IEC 15408 Common Criteria for Information Technology
+        Security Evaluation (CCRA)
+      protection_profiles:
+      - CPP_FW_V2.0E
+      - CPP_ND_V2.2E
+      - EP_IPS_V2.11
+      - EP_VPN_GW_V2.1
+      - MOD_CPP_FW_v1.4e
+      - MOD_IPS_V1.0
+    - product: Firewall
+      product_type: Firewall
+      lapsed: false
+      standard: NIAP-approved Protection Profiles under ISO/IEC 15408 Common Criteria for Information Technology
+        Security Evaluation (CCRA)
+      protection_profiles:
+      - CPP_ND_V3.0E
+      - MOD_CPP_FW_v1.4e
+      - MOD_VPNGW_v1.3
+      - PKG_SSH_V1.0
+    - product: Network Device
+      product_type: Network Device
+      lapsed: false
+      standard: NIAP-approved Protection Profiles under ISO/IEC 15408 Common Criteria for Information Technology
+        Security Evaluation (CCRA)
+      protection_profiles:
+      - CPP_ND_V3.0E
+      - MOD_CPP_FW_v1.4e
+      - MOD_VPNGW_v1.3
+      - PKG_SSH_V1.0
+    - product: Network Switch
+      product_type: Network Switch
+      lapsed: true
+      standard: NIAP-approved Protection Profiles under ISO/IEC 15408 Common Criteria for Information Technology
+        Security Evaluation (CCRA)
+      protection_profiles:
+      - PP_ND_V1.1
+    - product: Network and Network-Related Devices and Systems
+      product_type: Network and Network-Related Devices and Systems
+      lapsed: true
+      standard: NIAP-approved Protection Profiles under ISO/IEC 15408 Common Criteria for Information Technology
+        Security Evaluation (CCRA)
+      protection_profiles:
+      - CPP_ND_V1.0
+      - CPP_ND_V2.0E
+      - CPP_ND_V2.2E
+      - PP_ND_V1.1
+    - product: Remote Access
+      product_type: Remote Access
+      lapsed: false
+      standard: NIAP-approved Protection Profiles under ISO/IEC 15408 Common Criteria for Information Technology
+        Security Evaluation (CCRA)
+      protection_profiles:
+      - CPP_ND_V3.0E
+      - MOD_CPP_FW_v1.4e
+      - MOD_VPNGW_v1.3
+      - PKG_SSH_V1.0
+    - product: Virtual Private Network
+      product_type: Virtual Private Network
+      lapsed: false
+      standard: NIAP-approved Protection Profiles under ISO/IEC 15408 Common Criteria for Information Technology
+        Security Evaluation (CCRA)
+      protection_profiles:
+      - CPP_ND_V3.0E
+      - MOD_CPP_FW_v1.4e
+      - MOD_VPNGW_v1.3
+      - PKG_SSH_V1.0
+    - product: Wireless Monitoring
+      product_type: Wireless Monitoring
+      lapsed: true
+      standard: NIAP-approved Protection Profiles under ISO/IEC 15408 Common Criteria for Information Technology
+        Security Evaluation (CCRA)
+      protection_profiles:
+      - CPP_ND_V2.2E
+      - MOD_CPP_FW_v1.4e
+      - MOD_VPNGW_v1.3
+    in_evaluation:
+    - Firewall
+    - Network Device
+    - Remote Access
+    - Virtual Private Network
+    register_name_note: register-name 'fortinet' = fortinet; wikidata P856 fortinet.com agrees or unheld
+    identity_source: register-name
+    identity_note: register gave only the name; exact normalised match to the repo's apis.yml name, one repo, Wikidata
+      P856 not contradicting (Kin 2026-10-20 decision 2)
+  detected_by: sweep-common-criteria-certified-products.py
+  first_seen: '2026-10-21'
+- partner_name: Mozilla Firefox Add-ons (AMO)
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: firefox-add-ons
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://addons.mozilla.org/en-US/firefox/addon/fortinet-browser-security/
+  app: Fortinet Browser Security
+  listing_count: 1
+  category: browser extension (Firefox Add-ons)
+  partner_url: https://addons.mozilla.org/
+  contract_reference:
+    register: 'Firefox Add-ons (addons.mozilla.org public API v5 search: authors, homepage, support_url)'
+    spec_file: null
+    role: firefox-add-on-publisher
+    registered_name: Fortinet
+    register_id: https://addons.mozilla.org/api/v5/addons/addon/fortinet-browser-security/
+    matched_domain: fortinet.com
+    matched_by: domain
+    matched_name: Fortinet
+    builder: publisher
+    signal_note: ONE edge per provider for the store; listing alone = participation. The AMO author name (builder
+      publisher) or homepage + support_url both on the provider's domain (builder domain-attested) identifies it;
+      extension / user counts are context, never counted. No Mozilla repo in all/*, so no platform-side edge exists
+      to mirror.
+    detected_by: sweep-browser-extension-stores.py
+    detected: '2026-10-21'
+  detected_by: sweep-browser-extension-stores.py
+  first_seen: '2026-10-21'
 source:
 - crowdstrike/integrations/crowdstrike-integration-edges.yml
 - microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
