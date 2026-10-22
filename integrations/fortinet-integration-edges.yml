@@ -341,9 +341,40 @@ edges:
   category: Docker Verified Publisher
   badges:
   - Docker Verified Publisher
+- partner_name: Mozilla Firefox Add-ons (AMO)
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: firefox-add-ons
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://addons.mozilla.org/en-US/firefox/addon/fortinet-browser-security/
+  app: Fortinet Browser Security
+  listing_count: 1
+  category: browser extension (Firefox Add-ons)
+  partner_url: https://addons.mozilla.org/
+  contract_reference:
+    register: 'Firefox Add-ons (addons.mozilla.org public API v5 search: authors, homepage, support_url)'
+    spec_file: null
+    role: firefox-add-on-publisher
+    registered_name: Fortinet
+    register_id: https://addons.mozilla.org/api/v5/addons/addon/fortinet-browser-security/
+    matched_domain: fortinet.com
+    matched_by: domain
+    matched_name: Fortinet
+    builder: publisher
+    signal_note: ONE edge per provider for the store; listing alone = participation. The AMO author name (builder
+      publisher) or homepage + support_url both on the provider's domain (builder domain-attested) identifies it;
+      extension / user counts are context, never counted. No Mozilla repo in all/*, so no platform-side edge exists
+      to mirror.
+    detected_by: sweep-browser-extension-stores.py
+    detected: '2026-10-21'
+  detected_by: sweep-browser-extension-stores.py
+  first_seen: '2026-10-21'
 - partner_name: Common Criteria Portal (CCRA certified products)
   partner: null
-  partner_match: register-name
+  partner_match: register
   type: register
   channel: standard-directory
   relationship: standard-participant
@@ -357,8 +388,8 @@ edges:
     spec_file: null
     role: cc-certified-manufacturer
     registered_name: Fortinet, Inc.
-    matched_domain: null
-    matched_by: register-name
+    matched_domain: fortinet.com
+    matched_by: domain
     certified_products:
     - product: Boundary Protection Devices and Systems
       product_type: Boundary Protection Devices and Systems
@@ -386,15 +417,13 @@ edges:
       product counts are context, never counted'
     detected_by: sweep-common-criteria-certified-products.py
     detected: '2026-10-21'
-    register_name_note: register-name 'fortinet' = fortinet; wikidata P856 fortinet.com agrees or unheld
-    identity_source: register-name
-    identity_note: register gave only the name; exact normalised match to the repo's apis.yml name, one repo, Wikidata
-      P856 not contradicting (Kin 2026-10-20 decision 2)
+    identity: wikidata Q2749364 'Fortinet' P856 http://www.fortinet.com/
+    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
   detected_by: sweep-common-criteria-certified-products.py
   first_seen: '2026-10-21'
 - partner_name: NIAP Product Compliant List (US CCEVS)
   partner: null
-  partner_match: register-name
+  partner_match: register
   type: register
   channel: standard-directory
   relationship: standard-participant
@@ -408,8 +437,8 @@ edges:
     spec_file: null
     role: niap-pcl-vendor
     registered_name: Fortinet, Inc.
-    matched_domain: null
-    matched_by: register-name
+    matched_domain: fortinet.com
+    matched_by: domain
     signal_note: 'certified_products = one entry per NIAP technology type with a Certified (current) or Archived
       (lapsed: true) PCL product, Protection Profiles named; products In Progress are listing only (in_evaluation),
       never certified; product counts are context, never counted'
@@ -499,42 +528,9 @@ edges:
     - Network Device
     - Remote Access
     - Virtual Private Network
-    register_name_note: register-name 'fortinet' = fortinet; wikidata P856 fortinet.com agrees or unheld
-    identity_source: register-name
-    identity_note: register gave only the name; exact normalised match to the repo's apis.yml name, one repo, Wikidata
-      P856 not contradicting (Kin 2026-10-20 decision 2)
+    identity: wikidata Q2749364 'Fortinet' P856 http://www.fortinet.com/
+    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
   detected_by: sweep-common-criteria-certified-products.py
-  first_seen: '2026-10-21'
-- partner_name: Mozilla Firefox Add-ons (AMO)
-  partner: null
-  partner_match: null
-  type: marketplace
-  marketplace: firefox-add-ons
-  channel: partner-built
-  relationship: platform-app
-  direction: third-party
-  evidence: https://addons.mozilla.org/en-US/firefox/addon/fortinet-browser-security/
-  app: Fortinet Browser Security
-  listing_count: 1
-  category: browser extension (Firefox Add-ons)
-  partner_url: https://addons.mozilla.org/
-  contract_reference:
-    register: 'Firefox Add-ons (addons.mozilla.org public API v5 search: authors, homepage, support_url)'
-    spec_file: null
-    role: firefox-add-on-publisher
-    registered_name: Fortinet
-    register_id: https://addons.mozilla.org/api/v5/addons/addon/fortinet-browser-security/
-    matched_domain: fortinet.com
-    matched_by: domain
-    matched_name: Fortinet
-    builder: publisher
-    signal_note: ONE edge per provider for the store; listing alone = participation. The AMO author name (builder
-      publisher) or homepage + support_url both on the provider's domain (builder domain-attested) identifies it;
-      extension / user counts are context, never counted. No Mozilla repo in all/*, so no platform-side edge exists
-      to mirror.
-    detected_by: sweep-browser-extension-stores.py
-    detected: '2026-10-21'
-  detected_by: sweep-browser-extension-stores.py
   first_seen: '2026-10-21'
 source:
 - crowdstrike/integrations/crowdstrike-integration-edges.yml
